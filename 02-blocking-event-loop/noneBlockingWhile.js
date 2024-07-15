@@ -4,22 +4,22 @@ const { resolve } = require('path');
 
 let isRunning = true;
 
-setTimeout(() => isRunning = false, 10);
+setTimeout(() => (isRunning = false), 10);
 process.nextTick(() => console.log('Next tick'));
- 
+
 function setImmedatePromise() {
   return new Promise((resolve, reject) => {
-    setImmediate(() => resolve( ))
+    setImmediate(() => resolve());
     // // With resolve we stay on the same event loop iteration
     // resolve()
-  })
+  });
 }
 
 async function whileLoop() {
-  while(isRunning) {
+  while (isRunning) {
     console.log('While loop is running...');
-    await setImmedatePromise(); 
+    await setImmedatePromise();
   }
 }
 
-whileLoop().then(() => console.log('While loop ended'))  
+whileLoop().then(() => console.log('While loop ended'));
