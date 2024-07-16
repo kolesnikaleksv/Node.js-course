@@ -1,7 +1,7 @@
 const { myName, myHobbies, myFavoriteNumber } = require('./multiple-export');
 const sayHi = require('./my-modules/single-export');
 const {
-  myName: myOtherName,
+  myName: myOtherName, // we can rename imported property if we need it
   myFriendsName,
   myGreatHobbies,
 } = require('./export-and-import');
@@ -18,3 +18,10 @@ console.log(myGreatHobbies);
 sayHi(myName);
 
 console.log(myOtherName, myFriendsName);
+
+// // How we can see the module wrapper function
+// console.log(arguments.callee.toString());
+// // In output we can see
+// // function (exports, require, module, __filename, __dirname) {
+// // .....
+// // }
